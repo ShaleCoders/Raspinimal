@@ -1,6 +1,6 @@
 Raspinimal
 ===========
-The minimal Raspbian over Network installer for Raspberry Pi Model B. (Please visit our site _[raspinimal][5]_)
+The minimal Raspbian over Network installer for Raspberry Pi Model B & Raspberry Pi 2 Model B (Please visit our site _[raspinimal][5]_)
 
 This project provides a minimal base system install over network using latest Raspbian packages (_Wheezy_)
 
@@ -26,9 +26,9 @@ Features
 
 Requirements
 ------------
- - A Raspberry Pi Model B
+ - A Raspberry Pi Model B or Raspberry Pi2 Model B
  - SD card of at least 2GB (or at least 64MB for USB root install)
- - working Ethernet with Internet connectivity
+ - working Ethernet with Internet connectivity (Wifi coming soon)
 
 Raw Image
 ----------------
@@ -138,7 +138,7 @@ There's also a post-install script support which is executed just before unmount
 
 Thanks & Credit
 ---------------
-A big thanks to _[Toni Spets][4]_ for the original copy from [raspbian-ua-netinst][6]. I'm not taking any credit for fully making this install, i've just patched stuff & automated important stuff. I'm open to suggestions, and abuse for copying **(Sorry for Improving)**  a project that seems to died off. 
+A big thanks to _[Toni Spets][4]_ for the original copy. 
 
 Contact / Help
 ---------------
