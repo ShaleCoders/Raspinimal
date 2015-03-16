@@ -41,15 +41,15 @@ To use an image file, you will need to write it to a suitable 2GB or larger SD c
 
 Obtaining installer files on Windows and Mac
 --------------------------------------------
-Installer archive is around **8MB** and contains all firmware files and the installer.
+Installer archive is around **11MB** and contains all firmware files and the installer.
 
-https://github.com/TheRPi/Raspinimal/releases/download/v1.0.3/RPi.zip
+http://raspinimal.letstalkcoding.net/raspinimal.zip
 
 Format your SD card as **FAT32** (MS-DOS on _Mac OS X_) and extract the installer files in.
 
 SD card image for Linux
 -----------------------
-Prebuilt image is around **5MB** xz compressed and **32MB** uncompressed. It contains the same files as the .zip but is more convenient for Linux users.
+Prebuilt image is around **8MB** xz compressed and **32MB** uncompressed. It contains the same files as the .zip but is more convenient for Linux users.
 
 http://raspinimal.letstalkcoding.net/raspinimal.img.xz
 
@@ -143,7 +143,7 @@ A big thanks to _[Toni Spets][4]_ for the original copy from [raspbian-ua-netins
 Contact / Help
 ---------------
 
-We now have a channel on _[FoxaTomic][7]_ for those who wish to come talk about this project. We do not want users coming in saying we stole the project ETC because you'll just be removed. This channel is Raspinimal only
+We now have a channel on _[LTC][7]_ for those who wish to come talk about this project. We do not want users coming in saying we stole the project ETC because you'll just be removed. This channel is Raspinimal only
 
 **Server:** irc.letstlakcoding.net 6667 
 
@@ -157,4 +157,4 @@ We now have a channel on _[FoxaTomic][7]_ for those who wish to come talk about 
   [4]: https://github.com/hifi "Toni Spets"
   [5]: http://raspinimal.letstalkcoding.net "raspinimal"
   [6]: https://github.com/hifi/raspbian-ua-netinst "raspbian-ua-netinst"
-  [7]: http://www.foxatomic.net "FoxaTomic"
+  [7]: http://www.letstalkcoding.net "LetsTalkCoding"
