@@ -77,14 +77,14 @@ The default **_root_** password is **_root_**.
   Set new root password: `passwd`  
   Configure your default locale: `dpkg-reconfigure locales`  
   Configure your timezone: `dpkg-reconfigure tzdata`  
-  Install latest firmware package: `apt-get install libraspberrypi-bin libraspberrypi-dev libraspberrypi0`
-  Reboot into new firmware: `reboot` 
+  Install latest firmware package: `apt-get install libraspberrypi-bin libraspberrypi-dev libraspberrypi0` 
 
-  _Installing the firmware package is **strongly** recommended._
+  _Installing the firmware package is **strongly** recommended. Please reboot after installing_
 
 - Optional: `apt-get install raspi-copies-and-fills` for improved memory management performance.
 - Optional: `apt-get install raspi-config` the tool for overclocking and much more.
-- Optional: `echo "CONF_SWAPSIZE=128" > /etc/dphys-swapfile && apt-get install dphys-swapfile` Creates a 128mb swap which is enabled on boot
+- Optional: `echo "CONF_SWAPSIZE=128" > /etc/dphys-swapfile && apt-get install dphys-swapfile` 
+- Creates a 128mb swap which is enabled on boot
 
 Reinstalling or replacing an existing system
 --------------------------------------------
