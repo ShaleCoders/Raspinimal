@@ -88,9 +88,9 @@ The default **_root_** password is **_root_**.
 
 Reinstalling or replacing an existing system
 --------------------------------------------
-If you want to reinstall with the same settings you did your first install you can just move the original _config.txt_ back and reboot. Make sure you still have **kernel_install.img** and **installer.cpio.gz** also **defaultconfig.txt** in your _/boot_ partition.
+If you want to reinstall with the same settings you did your first install you can just move the original _config.txt_ back and reboot. Make sure you still have **kernel-rpi1_install.img & kernel-rpi2_install.img** and **installer.cpio** also **defaultconfig.txt** in your _/boot_ partition.
 
-    mv /boot/config-reinstall.txt /boot/config.txt
+    cp /boot/config-reinstall.txt /boot/config.txt
     reboot
 
 **Remember to backup all your data and original config.txt before doing this!**
