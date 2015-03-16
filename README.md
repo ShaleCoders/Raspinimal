@@ -111,7 +111,7 @@ The format of the file and the current defaults:
     rootpw=raspbian
     cdebootstrap_cmdline=
     bootsize=+50M # /boot partition size as given to fdisk
-    rootsize=+15G     # / partition size, leave empty to use all free space
+    rootsize=     # / partition size, leave empty to use all free space
     timeserver=time.nist.gov
     ip_addr=dhcp # Put static IP here 
     ip_netmask=0.0.0.0
@@ -132,7 +132,7 @@ Available presets: _minimal_, _server_ and _base_.
 
 Presets set the `cdebootstrap_cmdline` variable. For example, the current _minimal_ default is:
 
-> _--flavour=minimal --include=kmod,fake-hwclock,ifupdown,net-tools,isc-dhcp-client,ntp,openssh-server,dialog,locales,udev,apt-utils,wget,iputils-ping_
+> _--flavour=minimal --include=kmod,fake-hwclock,ifupdown,net-tools,isc-dhcp-client,ntp,openssh-server,dialog,locales,udev,apt-utils,wget_
 
 There's also a post-install script support which is executed just before unmounting the filesystems. You can use it to tweak and finalize your automatic installation. The script should reside in the first vfat partition and have a name of _post-install.txt_.
 
