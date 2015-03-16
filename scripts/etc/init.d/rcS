@@ -9,6 +9,7 @@ hostname=pi
 rootpw=root
 cdebootstrap_cmdline=
 bootsize=+50M
+rootsize=
 timeserver=time.nist.gov
 ip_addr=dhcp
 ip_netmask=0.0.0.0
@@ -63,13 +64,13 @@ echo
 echo "==========================================="
 echo "Raspinimal (Wheezy + Latest Kernel + ex4)"
 echo "==========================================="
-echo "Version 1.0.4 (Latest Kernel/ex4)"
-echo "Built on Sun March 30 09:49:44 GMT 2014"
+echo "Version 1.0.5 (Latest Kernel/ex4)"
+echo "Built on Sun March 16 14:36:12 GMT 2015"
 echo "==========================================="
-echo "http://github.com/TheRPi/Raspinimal"
+echo "https://github.com/IRCdDev/Raspinimal"
 echo "==========================================="
-echo "IRC: irc.foxatomic.net"
-echo "Channel: #brodin"
+echo "IRC: irc.letstalkcoding.net"
+echo "Channel: #Raspinimal"
 echo "Port: 6667"
 echo "Website: http://brodin.us"
 echo
@@ -85,13 +86,12 @@ cp /boot/bootcode.bin \
     /boot/fixup.dat \
     /boot/fixup_x.dat \
     /boot/installer.cpio \
-    /boot/kernel_install.img \
+    /boot/kernel-rpi1_install.img \
+    /boot/kernel-rpi2_install.img \
     /boot/start_cd.elf \
     /boot/start.elf \
     /boot/start_x.elf /bootfs/ || fail
 
-# use install kernel in first boot
-cp /boot/kernel_install.img /bootfs/kernel.img || fail
 
 if [ -f /boot/installer-config.txt ]; then
     cp /boot/installer-config.txt /bootfs/installer-config.txt || fail
@@ -202,7 +202,7 @@ fi
 if [ "$cdebootstrap_cmdline" = "" ]; then
 
     # minimal
-    cdebootstrap_cmdline="--flavour=minimal --include=kmod,fake-hwclock,ifupdown,net-tools,openssh-server$dhcp_packages,udev,dialog,locales,apt-utils,wget,iputils-ping,ntp"
+    cdebootstrap_cmdline="--flavour=minimal --include=kmod,fake-hwclock,ifupdown,net-tools,openssh-server$dhcp_packages,udev,dialog,locales,apt-utils,wget,ntp"
 
     # add dhcp client if using dhcp
     if [ "$ip_addr" = "dhcp" ]; then
@@ -256,6 +256,7 @@ echo "  hostname = $hostname"
 echo "  rootpw = $rootpw"
 echo "  cdebootstrap_cmdline = $cdebootstrap_cmdline"
 echo "  bootsize = $bootsize"
+echo "  rootsize = $rootsize"
 echo "  timeserver = $timeserver"
 echo "  cmdline = $cmdline"
 echo "  usbroot = $usbroot"
@@ -311,6 +312,7 @@ p
 2
 
 
+$rootsize
 w
 EOF
     echo "OK"
@@ -337,6 +339,7 @@ p
 1
 
 
+$rootsize
 w
 EOF
     echo "OK"
@@ -379,10 +382,6 @@ fi
 echo "Starting install process..."
 cdebootstrap-static --arch=armhf --allow-unauthenticated $cdebootstrap_cmdline $release /rootfs $mirror || fail
 
-# install latest kernel in /boot
-#echo -n "Install new kernel..."
-#cp -a /rootfs/vmlinuz /rootfs/boot/kernel.img
-
 # allow root login
 echo -n "Configuring installed system... "
 echo -n root:$rootpw | chroot /rootfs /usr/sbin/chpasswd || fail
@@ -415,6 +414,15 @@ else
 
     cp /etc/resolv.conf /rootfs/etc/ || fail
 fi
+
+# openssh-server in jessie doesn't allow root to login using password anymore
+# this hack does allow it (until a proper solution is implemented)
+if [ "$release" = "jessie" ] ; then
+     echo -n " Allowing root to login with password... "
+     sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /rootfs/etc/ssh/sshd_config || fail
+     echo "OK"
+fi
+echo ""
 
 # there is no hw clock on rpi
 echo "HWCLOCKACCESS=no" >> /rootfs/etc/default/hwclock || fail
@@ -462,10 +470,12 @@ date +"%Y-%m-%d %H:%M:%S" > /rootfs/etc/fake-hwclock.data
 echo "Running apt-get update & applying latest kernel"
 chroot /rootfs /usr/bin/apt-get update &>/dev/null || fail
 chroot /rootfs /usr/bin/apt-get install raspberrypi-bootloader -y &>/dev/null || fail
+chroot /rootfs /usr/bin/apt-get clean &>/dev/null || fail
 
 echo "Unmounting filesystems..."
 umount /rootfs/boot
 umount /rootfs
 
-echo "Finished! Rebooting to installed system."
+echo "Finished! Rebooting to installed system in 5seconds"
+sleep 10
 reboot
