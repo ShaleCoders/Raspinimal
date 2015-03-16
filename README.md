@@ -1,6 +1,6 @@
 Raspinimal
 ===========
-The minimal Raspbian over Network installer for Raspberry Pi Model B. (Please visit our site _[Brodin][5]_)
+The minimal Raspbian over Network installer for Raspberry Pi Model B. (Please visit our site _[raspinimal][5]_)
 
 This project provides a minimal base system install over network using latest Raspbian packages (_Wheezy_)
 
@@ -34,7 +34,7 @@ Raw Image
 ----------------
 Prebuilt image is around **32MB**. It contains the same files as the .zip but is more convenient for users writing to SD Cards.
 
-http://downloads.brodin.us/raspinimal.img
+http://raspinimal.letstalkcoding.net/raspinimal.img
 
 To use an image file, you will need to write it to a suitable 2GB or larger SD card using the UNIX tool **_[DD][2]_**. Windows users should use _**[Win32DiskImager][3]**_. Do not try to drag and drop the file to SD Card  without using dd or Win32DiskImager.... it won't work!!
 
@@ -51,7 +51,7 @@ SD card image for Linux
 -----------------------
 Prebuilt image is around **5MB** xz compressed and **32MB** uncompressed. It contains the same files as the .zip but is more convenient for Linux users.
 
-http://downloads.brodin.us/raspinimal.img.xz
+http://raspinimal.letstalkcoding.net/raspinimal.img.xz
 
 To flash your SD card on Linux:
 
@@ -145,16 +145,16 @@ Contact / Help
 
 We now have a channel on _[FoxaTomic][7]_ for those who wish to come talk about this project. We do not want users coming in saying we stole the project ETC because you'll just be removed. This channel is Raspinimal only
 
-**Server:** irc.foxatomic.net 6667 
+**Server:** irc.letstlakcoding.net 6667 
 
 **SSL: 6697**
 
-**Channel:** #Brodin
+**Channel:** #raspinimal
 
   [1]: http://www.raspbian.org/ "Raspbian"
   [2]: http://en.wikipedia.org/wiki/Dd_(Unix) "dd"
   [3]: http://sourceforge.net/projects/win32diskimager "Win32DiskImager"
   [4]: https://github.com/hifi "Toni Spets"
-  [5]: http://brodin.us "Brodin"
+  [5]: http://raspinimal.letstalkcoding.net "raspinimal"
   [6]: https://github.com/hifi/raspbian-ua-netinst "raspbian-ua-netinst"
   [7]: http://www.foxatomic.net "FoxaTomic"
