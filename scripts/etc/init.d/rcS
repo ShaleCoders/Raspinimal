@@ -64,7 +64,7 @@ echo
 echo "==========================================="
 echo "Raspinimal (Wheezy + Latest Kernel + ex4)"
 echo "==========================================="
-echo "Version 1.0.5 (Latest Kernel/ex4)"
+echo "Version 1.0.4 (Latest Kernel/ex4)"
 echo "Built on Sun March 16 14:36:12 GMT 2015"
 echo "==========================================="
 echo "https://github.com/IRCdDev/Raspinimal"
