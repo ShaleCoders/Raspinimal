@@ -471,9 +471,13 @@ echo "Saving current time for fake-hwclock..."
 sync # synchronize before saving time to make it "more accurate"
 date +"%Y-%m-%d %H:%M:%S" > /rootfs/etc/fake-hwclock.data
 
-echo "Running apt-get update & applying latest kernel"
+echo "Running apt-get update..."
 chroot /rootfs /usr/bin/apt-get update &>/dev/null || fail
+
+echo "Running apt-get install raspberrypi-bootloader..."
 chroot /rootfs /usr/bin/apt-get install raspberrypi-bootloader -y &>/dev/null || fail
+
+echo "Running apt-get clean..."
 chroot /rootfs /usr/bin/apt-get clean &>/dev/null || fail
 
 echo "Unmounting filesystems..."
