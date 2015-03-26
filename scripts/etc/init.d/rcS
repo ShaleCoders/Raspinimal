@@ -8,7 +8,7 @@ release=wheezy
 hostname=pi
 rootpw=root
 cdebootstrap_cmdline=
-bootsize=+50M
+bootsize=+64M
 rootsize=
 timeserver=time.nist.gov
 ip_addr=dhcp
@@ -68,7 +68,7 @@ echo
 echo "==========================================="
 echo "Raspinimal (Wheezy + Latest Kernel + ex4)"
 echo "==========================================="
-echo "Version 1.0.4 (Latest Kernel/ex4)"
+echo "Version 1.0.5 (Latest Kernel/ex4)"
 echo "Built on Sun March 16 14:36:12 GMT 2015"
 echo "==========================================="
 echo "https://github.com/IRCdDev/Raspinimal"
@@ -76,7 +76,6 @@ echo "==========================================="
 echo "IRC: irc.letstalkcoding.net"
 echo "Channel: #Raspinimal"
 echo "Port: 6667"
-echo "Website: http://brodin.us"
 echo
 echo
 sleep 10
